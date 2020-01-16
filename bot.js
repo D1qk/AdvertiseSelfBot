@@ -14,14 +14,10 @@ let x = 0;
 let y = 0;
 
 client.on('ready', async => {
+    console.log(`Ready As ${client.user,tag}`)
     for (const guild of client.guilds) {
         try {
-            for (const member of guild.members) {
-                if (((guild.roles.array().length-1) - member.highestRole.position) <= r-1 == true) return;
-                await member.send(msg);
-                console.log(`${guild.name}/Succeeded: ${x++}`);
-                await delay(3000);
-            };
+            send(client, guild);
         } catch(err) {
             console.log(`${guild.name}/Failed: ${y++}`);
         }
@@ -29,4 +25,12 @@ client.on('ready', async => {
     };
 });
 
+async function send(client, guild) {
+  for (const member of guild.members) {
+                if (((guild.roles.array().length-1) - member.highestRole.position) <= r-1 == true) return;
+                await member.send(msg);
+                console.log(`${guild.name}/Succeeded: ${x++}`);
+                await delay(3000);
+            };
+}
 client.login(token);
