@@ -14,18 +14,18 @@ let x = 0;
 let y = 0;
 
 client.on('ready', async => {
-    console.log(`Ready As ${client.user,tag}`)
-    loop(client);
+    console.log(`Ready As ${client.user,tag}`);
+    try {
+      loop(client);
+    } catch(err) {
+      console.log(`${guild.name}/Failed: ${y++}`);
+    }
 });
 
 async function loop(client) {
   for (const guild of client.guilds) {
-        try {
-            send(client, guild);
-        } catch(err) {
-            console.log(`${guild.name}/Failed: ${y++}`);
-        }
-        await delay(60000);
+    await send(client, guild);
+    await delay(60000);
     };
 }
 
