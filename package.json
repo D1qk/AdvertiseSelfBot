@@ -1,0 +1,16 @@
+{
+  "name": "nshr",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ms6rb",
+  "license": "ISC",
+  "dependencies": {
+    "delay": "^4.3.0",
+    "discord.js": "^11.4.2",
+  },
+  "devDependencies": {},
+  "description": ""
+}
