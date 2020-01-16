@@ -15,7 +15,11 @@ let y = 0;
 
 client.on('ready', async => {
     console.log(`Ready As ${client.user,tag}`)
-    for (const guild of client.guilds) {
+    loop(client);
+});
+
+async function loop(client) {
+  for (const guild of client.guilds) {
         try {
             send(client, guild);
         } catch(err) {
@@ -23,7 +27,7 @@ client.on('ready', async => {
         }
         await delay(60000);
     };
-});
+}
 
 async function send(client, guild) {
   for (const member of guild.members) {
